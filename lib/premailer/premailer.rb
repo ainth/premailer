@@ -168,6 +168,7 @@ class Premailer
   # @option options [Boolean] :escape_url_attributes URL Escapes href, src, and background attributes on elements. Default is true.
   # @option options [Symbol] :adapter Which HTML parser to use, either <tt>:nokogiri</tt> or <tt>:hpricot</tt>.  Default is <tt>:hpricot</tt>.
   # @option options [String] :output_encoding Output encoding option for Nokogiri adapter. Should be set to "US-ASCII" to output HTML entities instead of Unicode characters.
+  # @option options [Boolean] :write_unmergable_rules Any rule (like a :hover rule) that cannot be merged inline will be written in a style block. Default is true.
   def initialize(html, options = {})
     @options = {:warn_level => Warnings::SAFE,
                 :line_length => 65,
@@ -194,6 +195,7 @@ class Premailer
                 :replace_html_entities => false,
                 :escape_url_attributes => true,
                 :adapter => Adapter.use,
+                :write_unmergable_rules => true
                 }.merge(options)
 
     @html_file = html
