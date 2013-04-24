@@ -88,7 +88,7 @@ class Premailer
           el['style'] = Premailer.escape_string(merged.declarations_to_s)
         end
 
-        if @options[:write_unmergable_rules]
+        if @options[:write_unmergeable_rules]
           doc = write_unmergable_css_rules(doc, @unmergable_rules)
         end
 

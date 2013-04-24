@@ -195,7 +195,7 @@ class Premailer
                 :replace_html_entities => false,
                 :escape_url_attributes => true,
                 :adapter => Adapter.use,
-                :write_unmergable_rules => true
+                :write_unmergeable_rules => true
                 }.merge(options)
 
     @html_file = html
