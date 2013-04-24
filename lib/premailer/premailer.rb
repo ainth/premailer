@@ -212,7 +212,7 @@ class Premailer
                 :input_encoding => 'ASCII-8BIT',
                 :replace_html_entities => false,
                 :adapter => Adapter.use,
-                :write_unmergable_rules => true
+                :write_unmergeable_rules => true
                 }.merge(options)
 
     @html_file = html
