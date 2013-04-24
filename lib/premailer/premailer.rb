@@ -185,9 +185,10 @@ class Premailer
   # @option options [Boolean] :verbose Whether to print errors and warnings to <tt>$stderr</tt>.  Default is false.
   # @option options [Boolean] :include_link_tags Whether to include css from <tt>link rel=stylesheet</tt> tags.  Default is true.
   # @option options [Boolean] :include_style_tags Whether to include css from <tt>style</tt> tags.  Default is true.
-  # @option options [String] :input_encoding Manually specify the source documents encoding. This is a good idea.
+  # @option options [String]  :input_encoding Manually specify the source documents encoding. This is a good idea.
   # @option options [Boolean] :replace_html_entities Convert HTML entities to actual characters. Default is false.
-  # @option options [Symbol] :adapter Which HTML parser to use, either <tt>:nokogiri</tt> or <tt>:hpricot</tt>.  Default is <tt>:hpricot</tt>.
+  # @option options [Symbol]  :adapter Which HTML parser to use, either <tt>:nokogiri</tt> or <tt>:hpricot</tt>.  Default is <tt>:hpricot</tt>.
+  # @option options [Boolean] :write_unmergable_rules Any rule (like a :hover rule) that cannot be merged inline will be written in a style block. Default is true.
   def initialize(html, options = {})
     @options = {:warn_level => Warnings::SAFE,
                 :line_length => 65,
@@ -211,6 +212,7 @@ class Premailer
                 :input_encoding => 'ASCII-8BIT',
                 :replace_html_entities => false,
                 :adapter => Adapter.use,
+                :write_unmergable_rules => true
                 }.merge(options)
 
     @html_file = html
